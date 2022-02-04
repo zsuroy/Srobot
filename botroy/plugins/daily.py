@@ -1,7 +1,7 @@
 import requests
 import json
 from nonebot import on_command, logger
-from nonebot.adapters.cqhttp import Bot, Event, MessageSegment
+from nonebot.adapters.onebot.v11 import Bot, Event, MessageSegment
 
 
 def get_news():

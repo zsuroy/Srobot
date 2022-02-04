@@ -15,8 +15,8 @@ from nonebot import require, logger
 from nonebot.adapters.onebot.v11 import Bot, Event, Message, MessageEvent
 from nonebot.adapters import MessageTemplate
 from nonebot.matcher import Matcher
-from nonebot.adapters.cqhttp import GROUP_ADMIN, GROUP_OWNER
-from nonebot.adapters.cqhttp import GroupMessageEvent
+from nonebot.adapters.onebot.v11 import GROUP_ADMIN, GROUP_OWNER
+from nonebot.adapters.onebot.v11 import GroupMessageEvent
 from nonebot.permission import SUPERUSER
 from nonebot.typing import T_State
 from nonebot.params import State, Arg, CommandArg, ArgPlainText
@@ -27,7 +27,7 @@ from nonebot.params import State, Arg, CommandArg, ArgPlainText
 global_config = get_driver().config
 init_config = Config(**global_config.dict())
 
-# 定时任务
+# 定时任务 | Linux 下可能需要注释掉 pyproject.toml 里面的导入
 scheduler = require("nonebot_plugin_apscheduler").scheduler
 
 @scheduler.scheduled_job("cron", hour="21", minute="*/5", second='5', id="health_detect", kwargs={"config": init_config}, timezone='Asia/Shanghai')
@@ -72,7 +72,7 @@ async def get_result():
     return msg_temp
 
 
-healthDetect = on_command("健康打卡提醒",aliases={'HDR'},priority=5)
+healthDetect = on_command("健康打卡提醒",aliases={'HDR'},priority=5, block=True)
 @healthDetect.handle()
 async def healthDetect_(matcher: Matcher, args: Message = CommandArg())-> None:
     plain_text = args.extract_plain_text()  # 首次发送命令时跟随的参数，例：/健康打卡提醒 状态，则args为状态

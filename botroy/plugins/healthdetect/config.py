@@ -5,8 +5,8 @@ class Config(BaseSettings):
     plugin_author: str = "Suroy"
     plugin_mail: str = "Suroy@qq.com"
     plugin_name: str = "healthDetect"
-    plugin_bot: str = "1142703165" # 机器人Q号
-    plugin_group_id: list[str] = ['257426100'] # 通知群号
+    plugin_bot: str = "12345" # 机器人Q号
+    plugin_group_id: list[str] = ['123456'] # 通知群号
     plugin_last_time: int = None # 上次执行时间
     plugin_today_status: bool = False # 今日完成状态
     plugin_status: bool = True # 插件运行状态

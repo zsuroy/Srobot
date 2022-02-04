@@ -11,9 +11,9 @@
 from typing import Dict, List
 import psutil
 from nonebot import on_command
-from nonebot.adapters.cqhttp import Bot, Event, MessageSegment
-from nonebot.adapters.cqhttp import GROUP_ADMIN, GROUP_OWNER
-from nonebot.adapters.cqhttp import GroupMessageEvent
+from nonebot.adapters.onebot.v11 import Bot, Event, MessageSegment
+from nonebot.adapters.onebot.v11 import GROUP_ADMIN, GROUP_OWNER
+from nonebot.adapters.onebot.v11 import GroupMessageEvent
 from nonebot.permission import SUPERUSER
 
 def cpu_status() -> float:
@@ -28,7 +28,7 @@ def memory_status() -> float:
     return psutil.virtual_memory().percent
 
 
-status = on_command("系统状态",aliases={'status'},priority=5)
+status = on_command("系统状态",aliases={'status'},priority=5, block=True)
 @status.handle()
 async def status_(bot:Bot, event: Event):
     if event.get_user_id != str(event.self_id):

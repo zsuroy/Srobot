@@ -15,8 +15,8 @@ from nonebot import require, logger
 from nonebot.adapters.onebot.v11 import Bot, Event, Message, MessageEvent
 from nonebot.adapters import MessageTemplate
 from nonebot.matcher import Matcher
-from nonebot.adapters.cqhttp import GROUP_ADMIN, GROUP_OWNER
-from nonebot.adapters.cqhttp import GroupMessageEvent
+from nonebot.adapters.onebot.v11 import GROUP_ADMIN, GROUP_OWNER
+from nonebot.adapters.onebot.v11 import GroupMessageEvent
 from nonebot.permission import SUPERUSER
 from nonebot.typing import T_State
 from nonebot.params import State, Arg, CommandArg, ArgPlainText
@@ -89,7 +89,7 @@ async def getStat():
 
 
 # 人为命令解析
-studyTeen = on_command("青年大学习",aliases={'Teen'},priority=5)
+studyTeen = on_command("青年大学习",aliases={'Teen'},priority=5, block=True)
 @studyTeen.handle()
 async def studyTeen_(matcher: Matcher, args: Message = CommandArg())-> None:
     plain_text = args.extract_plain_text()  # 首次发送命令时跟随的参数，例：/青年大学习 状态，则args为状态
