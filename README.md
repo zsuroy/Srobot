@@ -53,5 +53,9 @@ OS: Ubuntu 21.10 armv7l
 Nonebot V2.0.0-beta.1  
 [go-cqhttp_linux_armv7.tar.gz](https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.0-beta8-fix2/go-cqhttp_linux_armv7.tar.gz)
 
-[x] 待修复该系统下服务器状态监测插件  
-[x] 待完善茉莉机器人群聊功能开关
+
+### V1.2.2 | 2022.2.5
+> 修复茉莉机器人对话API  
+> 
+✅ 修复该系统下服务器状态监测插件  
+❌ 待完善茉莉机器人群聊功能开关  

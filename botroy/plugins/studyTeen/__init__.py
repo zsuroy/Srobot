@@ -49,7 +49,6 @@ async def study_teen_task(config):
         msg = await get_result()
         for i in config['plugin_group_id']:
             await bot.send_group_msg(group_id=i, message=msg, auto_escape=False)
-            # await bot.send_private_msg(user_id=776592058, message=msg, auto_escape=False)
         print("Succ")
         init_config.plugin_last_time = time.time()  # 标记当前时间戳
     else:
@@ -81,8 +80,7 @@ async def getStat():
     :return:
     """
     async with httpx.AsyncClient(verify=False) as client:
-        # r = await client.get('http://127.0.0.1/debug/cloudfiles/manage.php?l=4&c=4&api=stat')
-        r = await client.get('https://suroy.cn/addon/filesubmit/manage.php?l=4&c=4&api=stat')
+        r = await client.get('http://127.0.0.1/debug/cloudfiles/manage.php?l=4&c=4&api=stat')
         if r.status_code == 200:
             # print(r.text)
             return r.text

@@ -6,6 +6,7 @@
 @site: https://suroy.cn/
 @email: suroy@qq.com
 @time: 2022/2/5 1:00 上午
+@lasttime: 2022/2/5 15:25
 """
 
 from aiocqhttp.message import escape
@@ -17,7 +18,7 @@ from nonebot.adapters.onebot.v11 import Bot, Event, MessageSegment
 from . import itpk_api
 from .config import Config
 
-__plugin_name__ = '[I]NLP'
+__plugin_name__ = 'NLP'
 __plugin_usage__ = r"""
 [Internal plugin]
 Internal plugin for natural language conversation.
@@ -43,6 +44,6 @@ async def NLP(bot: Bot, event: Event):
 
     # print(message, reply)
     if reply:
-        # 如果调用机器人成功，得到了回复，则转义之后发送给用户
-        await nlp.send(escape(reply))
+        # 如果调用机器人成功，得到了回复，之后发送给用户
+        await nlp.send(reply)
 
